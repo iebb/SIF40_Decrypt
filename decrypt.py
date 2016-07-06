@@ -55,7 +55,7 @@ try:
     conn.commit()
     if len(notfound):
         print 'Failed to decrypt key', notfound
-    print 'Successfully Decypted %d Records' % (count)
+    print 'Successfully Decrypted %d Records' % (count)
 except Exception, e:
     print 'Err:', e
 raw_input('Press Enter To Exit')
