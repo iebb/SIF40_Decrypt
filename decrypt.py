@@ -48,14 +48,14 @@ try:
                         val = dec[col] if dec[col] != False else None
                         count += 1
                         upd.execute("UPDATE " + i['tbl_name'] + " SET " + col + " = ? WHERE _rowid_ = ?", (val, __rowid))
-                    upd.execute("UPDATE " + i['tbl_name'] + " SET release_tag = ? WHERE _rowid_ = ?", (None, __rowid))
+						upd.execute("UPDATE " + i['tbl_name'] + " SET release_tag = ? WHERE _rowid_ = ?", (None, __rowid))
                 else:
                     if keyid not in notfound:
                         notfound.append(keyid)
     conn.commit()
     if len(notfound):
         print 'Failed to decrypt key', notfound
-    print 'Successfully Decrypted %d Records' % (count)
+    print 'Successfully Decypted %d Records' % (count)
 except Exception, e:
     print 'Err:', e
 raw_input('Press Enter To Exit')
