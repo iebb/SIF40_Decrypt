@@ -46,6 +46,8 @@ try:
 					dec = decrypt(keypairs[keyid], content)
 					for col in dec:
 						val = dec[col] if dec[col] != False else None
+						if type(dec[col]) != bool:
+							val = dec[col]
 						count += 1
 						upd.execute("UPDATE " + i['tbl_name'] + " SET " + col + " = ? WHERE _rowid_ = ?", (val, __rowid))
 						upd.execute("UPDATE " + i['tbl_name'] + " SET release_tag = ? WHERE _rowid_ = ?", (None, __rowid))
